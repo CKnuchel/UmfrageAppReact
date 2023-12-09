@@ -19,11 +19,14 @@ export async function getPublicContent() {
   export async function getPrivateContent() {
  
     let data = [];
+    const token = JSON.parse(localStorage.getItem("user")).accessToken;
 
-    await client.get("/private", {mode:'cors'})
+    await client.get("/private", { 
+      headers: {"Authorization": `Bearer ${token}`, 
+      mode:'cors'} })
       .then((response)=> {
         data = response.data;
       });
-
+      
     return data;
   }
