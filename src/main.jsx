@@ -5,9 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Public, { loader as publicLoader } from "./pages/public";
 import Login from "./pages/login";
 import Private, { loader as privateLoader } from "./pages/private";
+import Questions, { loader as questionLoader } from "./pages/questions";
+import Antworten, {loader as answerLoader } from "./pages/answer";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,16 @@ const router = createBrowserRouter([
     path: "/private",
     loader: privateLoader,
     element: <Private />
+  },
+  {
+    path: "/questions",
+    loader: questionLoader,
+    element: <Questions />
+  },
+  {
+    path: "/answer",
+    loader: answerLoader,
+    element: <Antworten />
   }
 ]);
 

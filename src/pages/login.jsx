@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AuthService from "../functions/auth.service";
+import AuthService from "../functions/auth_service";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -11,18 +11,18 @@ export default function Login() {
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
   };
-  // for password
+  // for Password
   const onChangePassword = (e) => {
     setPassword(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // verhindert das standardmässige Absenden des Formulars
+    e.preventDefault(); // Verhindert das standardmäßige Absenden des Formulars
 
     AuthService.login(username, password) // AJAX call ans Backend
       .then(() => {
         // Erfolg
-        navigate("/public");
+        navigate("/");
         console.log("Login erfolgreich");
       })
       .catch((e) => {
@@ -31,32 +31,33 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div className="container mt-5">
       <h1>Login</h1>
-
-      <form onSubmit={handleSubmit} method="post">
-        <label>
-          Username:
+      <form onSubmit={handleSubmit} method="post" className="mt-3">
+        <div className="mb-3">
+          <label htmlFor="username" className="form-label">Username:</label>
           <input
+            id="username"
             value={username}
             onChange={onChangeUsername}
             name="username"
             type="text"
+            className="form-control"
           />
-        </label>
-        <br />
-        <label>
-          Password:
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password:</label>
           <input
+            id="password"
             value={password}
             onChange={onChangePassword}
             name="password"
             type="password"
+            className="form-control"
           />
-        </label>
-        <br />
-        <button type="submit">Login</button>
+        </div>
+        <button type="submit" className="btn btn-primary">Login</button>
       </form>
-    </>
+    </div>
   );
 }
