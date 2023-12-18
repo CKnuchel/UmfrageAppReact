@@ -22,6 +22,9 @@ const Navbar = () => {
             <li className="nav-item">
                 <Link className="nav-link" to="/answer">Antworten</Link>
             </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/response">Fragen beantworten</Link>
+            </li>
           {isLoggedIn ? (
             <li className="nav-item">
               <Link className="nav-link" to="/logout">Logout</Link>

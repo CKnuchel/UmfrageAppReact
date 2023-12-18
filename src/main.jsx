@@ -12,6 +12,7 @@ import Private, { loader as privateLoader } from "./pages/private";
 import Questions, { loader as questionLoader } from "./pages/questions";
 import Antworten, {loader as answerLoader } from "./pages/answer";
 import Layout from "./components/layout";
+import Response, { loader as responseLoader } from "./pages/response";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
     path: "/answer",
     loader: answerLoader,
     element: <Layout> <Antworten /> </Layout>
+  },
+  {
+    path: "/response",
+    loader: responseLoader,
+    element: <Layout> <Response /> </Layout>
   }
 ]);
 
