@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+/**
+ * Komponente für die Navigationsleiste.
+ *
+ * @returns {JSX.Element} Die Navigationsleiste-Komponente.
+ */
 const Navbar = () => {
   // Zustand, der überwacht, ob ein Token vorhanden ist
   const [isLoggedIn, setIsLoggedIn] = useState(false);

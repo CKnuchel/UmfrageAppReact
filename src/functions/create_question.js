@@ -1,3 +1,8 @@
+/**
+ * Erstellt eine Frage und sendet sie an den Server.
+ * @param {string} question - Die Frage, die erstellt werden soll.
+ * @returns {Promise} - Ein Promise-Objekt, das die Serverantwort enthält.
+ */
 import axios from "axios";
 
 const client = axios.create({

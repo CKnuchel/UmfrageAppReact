@@ -4,6 +4,10 @@ const client = axios.create({
   baseURL: "http://localhost:8080",
 });
  
+/**
+ * Holt öffentliche Inhalte.
+ * @returns {Promise<Array>} Ein Array mit den öffentlichen Inhalten.
+ */
 export async function getPublicContent() {
  
     let data = [];

@@ -1,3 +1,7 @@
+/**
+ * Ruft die Fragen vom Server ab.
+ * @returns {Promise<Array>} Ein Promise, das ein Array mit den abgerufenen Fragen enthält.
+ */
 import axios from "axios";
 
 const client = axios.create({

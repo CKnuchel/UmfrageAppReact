@@ -1,3 +1,9 @@
+/**
+ * Erstellt eine Antwort durch Senden der Antwortdaten an den Server.
+ * @param {Object} answerData - Die Antwortdaten, die gesendet werden sollen.
+ * @returns {Promise<Object>} - Ein Promise, das das Antwortdatum enthält.
+ * @throws {Error} - Ein Fehler, der auftritt, wenn das Senden der Antwort fehlschlägt.
+ */
 import axios from "axios";
 
 const client = axios.create({
