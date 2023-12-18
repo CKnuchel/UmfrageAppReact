@@ -72,8 +72,10 @@ export default function Answer() {
                         ></textarea>
                     </div>
                 ))}
-                <button type="button" className="btn btn-secondary mb-3" onClick={addNewAnswer}>Antwort hinzufügen</button>
+                <div className="mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" className="btn btn-secondary me-md-2" onClick={addNewAnswer}>Antwort hinzufügen</button>
                 <button type="submit" className="btn btn-primary">Bestätigen</button>
+                </div>
             </form>
         </div>
     );

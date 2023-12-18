@@ -11,6 +11,7 @@ import Login from "./pages/login";
 import Private, { loader as privateLoader } from "./pages/private";
 import Questions, { loader as questionLoader } from "./pages/questions";
 import Antworten, {loader as answerLoader } from "./pages/answer";
+import Layout from "./components/layout";
 
 const router = createBrowserRouter([
   {
@@ -20,26 +21,26 @@ const router = createBrowserRouter([
   {
     path: "/public",
     loader: publicLoader,
-    element: <Public />
+    element:<Layout> <Public /> </Layout>
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Layout> <Login /> </Layout>
   },
   {
     path: "/private",
     loader: privateLoader,
-    element: <Private />
+    element: <Layout> <Private /> </Layout>
   },
   {
     path: "/questions",
     loader: questionLoader,
-    element: <Questions />
+    element: <Layout> <Questions /> </Layout>
   },
   {
     path: "/answer",
     loader: answerLoader,
-    element: <Antworten />
+    element: <Layout> <Antworten /> </Layout>
   }
 ]);
 
