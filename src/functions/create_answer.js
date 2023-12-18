@@ -4,10 +4,11 @@ const client = axios.create({
     baseURL: "http://localhost:8080",
 });
 
-const token = JSON.parse(localStorage.getItem("user")).accessToken;
+
 
 export async function createAnswer(answerData) {
     try {
+        const token = JSON.parse(localStorage.getItem("user")).accessToken;
         // Verwendung von Axios für die POST-Anfrage
         const response = await client.post('/answers', answerData, {
             headers: {
