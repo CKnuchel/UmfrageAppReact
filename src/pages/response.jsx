@@ -59,6 +59,7 @@ export default function Response() {
                 }
 
                 console.log("Antwort erfolgreich gesendet!");
+                window.location.reload();
             } catch (error) {
                 console.error("Ein Fehler ist aufgetreten beim Senden der Antwort: ", error);
             }
