@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 /**
  * Komponente für die Navigationsleiste.
@@ -7,14 +6,6 @@ import { useState, useEffect } from "react";
  * @returns {JSX.Element} Die Navigationsleiste-Komponente.
  */
 const Navbar = () => {
-  // Zustand, der überwacht, ob ein Token vorhanden ist
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    // Überprüfen, ob ein Token im Local Storage gespeichert ist
-    const token = localStorage.getItem("user");
-    setIsLoggedIn(!!token);
-  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
