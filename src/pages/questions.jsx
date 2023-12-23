@@ -1,11 +1,24 @@
+// components/Questions.js
 import { useLoaderData } from "react-router-dom";
 import { getQuestions } from "../functions/get_questions";
 import { createQuestion } from "../functions/create_question";
-import axios from 'axios'; // Stellen Sie sicher, dass Axios installiert ist
+import { checkIfQuestionIsAnswered } from '../functions/checkIfQuestionIsAnswered';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export async function loader() {
-    return { data: await getQuestions() };
+    const allQuestions = await getQuestions();
+    const user = JSON.parse(localStorage.getItem('user'));
+    const unansweredQuestions = [];
+
+    for (const question of allQuestions) {
+        const isAnswered = await checkIfQuestionIsAnswered(user.username, question.id);
+        if (!isAnswered) {
+            unansweredQuestions.push(question);
+        }
+    }
+
+    return { data: unansweredQuestions };
 }
 
 export default function Questions() {
@@ -41,7 +54,7 @@ export default function Questions() {
     return (
         <div className="custom-container my-4">
             <h1 className="mb-3">Fragen</h1>
-            <p>Hier sind alle erfassten Fragen</p>
+            <p>Hier sind alle erfassten Fragen, die noch nicht beantwortet wurden:</p>
             <ul className="list-group mb-4">
                 {data.map((item) => (
                     <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
@@ -59,6 +72,7 @@ export default function Questions() {
                         name="question" 
                         type="text" 
                         className="form-control" 
+                        required // Stellen Sie sicher, dass das Feld nicht leer ist
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">Speichern</button>
