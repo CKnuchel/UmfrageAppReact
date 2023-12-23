@@ -22,7 +22,7 @@ export default function Login() {
     AuthService.login(username, password) // AJAX call ans Backend
       .then(() => {
         // Erfolg
-        navigate("/");
+        navigate("/tannenbaum");
         console.log("Login erfolgreich");
       })
       .catch((e) => {

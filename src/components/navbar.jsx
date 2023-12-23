@@ -30,15 +30,6 @@ const Navbar = () => {
             <li className="nav-item">
                 <Link className="nav-link" to="/response">Fragen beantworten</Link>
             </li>
-          {isLoggedIn ? (
-            <li className="nav-item">
-              <Link className="nav-link" to="/logout">Logout</Link>
-            </li>
-          ) : (
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">Login</Link>
-            </li>
-          )}
         </ul>
       </div>
     </nav>

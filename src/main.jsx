@@ -13,19 +13,17 @@ import Questions, { loader as questionLoader } from "./pages/questions";
 import Antworten, {loader as answerLoader } from "./pages/answer";
 import Layout from "./components/layout";
 import Response, { loader as responseLoader } from "./pages/response";
+import Baum from "./pages/tannenbaum";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout> <div>Hello World</div> </Layout>
-  },
+  
   {
     path: "/public",
     loader: publicLoader,
     element:<Layout> <Public /> </Layout>
   },
   {
-    path: "/login",
+    path: "/",
     element: <Layout> <Login /> </Layout>
   },
   {
@@ -47,6 +45,11 @@ const router = createBrowserRouter([
     path: "/response",
     loader: responseLoader,
     element: <Layout> <Response /> </Layout>
+  },
+  {
+    path: "/tannenbaum",
+    element: <Layout> <Baum /> </Layout>
+
   }
 ]);
 
