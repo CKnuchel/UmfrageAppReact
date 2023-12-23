@@ -22,6 +22,15 @@ const register = (username, email, password) => {
   });
 };
 
+const registerRole = (username, email, password, role) => {
+  return axios.post(API_URL + "signup", {
+    username,
+    email,
+    password,
+    role: [role], // Verpacke die Rolle in ein Array
+  });
+};
+
 /**
  * Meldet einen Benutzer an.
  * @param {string} username - Der Benutzername.
@@ -64,6 +73,7 @@ const getCurrentUser = () => {
 
 const AuthService = {
   register,
+  registerRole,
   login,
   logout,
   getCurrentUser,

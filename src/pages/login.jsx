@@ -1,17 +1,17 @@
 import { useState } from "react";
 import AuthService from "../functions/auth_service";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Importiere den Link-Komponenten
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // for Username
+  // für Username
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
   };
-  // for Password
+  // für Password
   const onChangePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -19,7 +19,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault(); // Verhindert das standardmäßige Absenden des Formulars
 
-    AuthService.login(username, password) // AJAX call ans Backend
+    AuthService.login(username, password) // AJAX Call ans Backend
       .then(() => {
         // Erfolg
         navigate("/tannenbaum");
@@ -58,6 +58,9 @@ export default function Login() {
         </div>
         <button type="submit" className="btn btn-primary">Login</button>
       </form>
+      <div className="mt-3">
+        <p>Noch kein Konto? <Link to="/registrieren">Registrieren</Link></p> {/* Link zur Registrierungsseite */}
+      </div>
     </div>
   );
 }

@@ -14,6 +14,7 @@ import Antworten, {loader as answerLoader } from "./pages/answer";
 import Layout from "./components/layout";
 import Response, { loader as responseLoader } from "./pages/response";
 import Baum from "./pages/tannenbaum";
+import Regist from "./pages/regist";
 
 const router = createBrowserRouter([
   
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout> <Login /> </Layout>
+  },
+  {
+    path: "/registrieren",
+    element: <Layout> <Regist /> </Layout>
   },
   {
     path: "/private",
@@ -49,7 +54,6 @@ const router = createBrowserRouter([
   {
     path: "/tannenbaum",
     element: <Layout> <Baum /> </Layout>
-
   }
 ]);
 
